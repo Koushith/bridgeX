@@ -51,3 +51,5 @@ An app where in you can see all of your payments, manage payments (send, recieve
 - invoiceing
 - inbuilt wallet
 - escrow service
+
+https://reacthustle.com/blog/nextjs-folder-structure-where-to-put-components-in-nextjs-12
