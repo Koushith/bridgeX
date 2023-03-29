@@ -1,39 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Cross Border transaction
 
-## Getting Started
+Objective is to send and recieve crypto payments in seamless way.
 
-First, run the development server:
+### Current problem
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+you can recive to your EOA wallet, but its hard to keep track. there is no one common place where in you can see your transactions at once.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Solution
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+An app where in you can see all of your payments, manage payments (send, recieve). send invoices, add contacts.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### Untitled App
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Core Functionality
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- send.recieve crypto payments (to registered wallet address or outside)
+- Add contacts(addrress) set options
+- Schedule payment
+  - one time
+  - reccuring
 
-## Learn More
+### Pages
 
-To learn more about Next.js, take a look at the following resources:
+- Auth Pages
+- Home page - send, recieve -top 5 transactions
+- Transaction list
+- Reciepient Page
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  - here you can add your wallet details
+  - add other reciepent
+  - setup recurring payemts, one time payment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Manage
 
-## Deploy on Vercel
+  - invite friends
+  - download logs
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Menu dropdown
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-# bridgeX
+  - Profile
+  - settings
+  - help/glossary
+  - feature requests
+  - release. notes
+
+- Notifications
+
+### Feature to be added in later stages
+
+- invoiceing
+- inbuilt wallet
+- escrow service
