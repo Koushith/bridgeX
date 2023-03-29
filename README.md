@@ -1,4 +1,4 @@
-# Cross Border transaction
+# Cross Border transaction - WIP. estimated timeline - 3-4 months
 
 Objective is to send and recieve crypto payments in seamless way.
 
