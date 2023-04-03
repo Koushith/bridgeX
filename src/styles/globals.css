@@ -23,6 +23,8 @@ body {
   height: 100%;
   font-size: 62.5%;
   scroll-behavior: smooth;
+  background-color: #000000;
+  color: #888888;
 }
 /*
   Typographic tweaks!
