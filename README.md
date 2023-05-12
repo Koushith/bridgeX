@@ -47,3 +47,4 @@ An app where in you can see all of your payments, and manage payments (send, rec
 - escrow service
 
 [https://reacthustle.com/blog/nextjs-folder-structure-where-to-put-components-in-nextjs-12](https://reacthustle.com/blog/nextjs-folder-structure-where-to-put-components-in-nextjs-12)
+https://www.notion.so/koushith/58d87a236a7d4a9885d81e3c03b6cb66?v=bafa900da98d41a09bedac5a1ff490bf&p=85f4eaeadb8541d69a71687cd679db2e&pm=s
