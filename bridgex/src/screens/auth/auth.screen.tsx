@@ -1,3 +1,3 @@
 export const AuthScreen = () => {
-  return <>Auth Screen</>;
+  return <p>Auth Screen</p>;
 };
