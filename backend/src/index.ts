@@ -6,9 +6,12 @@ import { connectToDB } from "./utils/db.js";
 
 dotenv.config();
 const app = express();
+
 connectToDB();
 
-const PORT = 8000;
+app.use(express.json());
+
+const PORT = process.env.PORT || 8000;
 
 app.get("/", (req, res) => {
   res.send("This route works");
