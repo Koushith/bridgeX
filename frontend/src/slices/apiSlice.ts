@@ -13,6 +13,8 @@ const baseQuery = fetchBaseQuery({
   baseUrl: "",
 });
 
+//this file is like an entry point, well not exactly, but all the api query related stuffs are maintained here
+
 export const apiSlice = createApi({
   baseQuery: baseQuery,
   tagTypes: ["Product", "Order", "User"],
