@@ -1,5 +1,6 @@
 //all base api endpoints
 
+import { BACKEND_BASE_URL } from "@/utils";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // export const apiSlice = createApi({
@@ -10,7 +11,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 // });
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "",
+  baseUrl: BACKEND_BASE_URL,
 });
 
 //this file is like an entry point, well not exactly, but all the api query related stuffs are maintained here
