@@ -1,7 +1,6 @@
 import express from "express";
-
 import dotenv from "dotenv";
-
+import invoiceRoute from "./routes/invoice/invoice.route.js";
 import { errorHandler, notFound } from "./middlewares/errorHandler.js";
 import { connectToDB } from "./utils/db.js";
 import userRoute from "./routes/user/user.route.js";
@@ -24,7 +23,7 @@ app.get("/api", (req, res) => {
 app.use("/api/users", userRoute);
 
 //invoice related
-// app.use("/api/invoices");
+app.use("/api/invoices", invoiceRoute);
 
 //custom middlewares
 app.use(notFound);
