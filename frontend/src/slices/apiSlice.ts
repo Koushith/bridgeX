@@ -17,7 +17,7 @@ const baseQuery = fetchBaseQuery({
 
 export const apiSlice = createApi({
   baseQuery: baseQuery,
-  tagTypes: ["Product", "Order", "User"],
+  tagTypes: ["Invoice", "Payment", "User"],
   endpoints: (builder) => ({
     //inject all endpoints through injectedendpoint hook
   }),
