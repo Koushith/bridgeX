@@ -1,10 +1,13 @@
 import express from "express";
+
 import dotenv from "dotenv";
+
 import cors from "cors";
-import invoiceRoute from "./routes/invoice/invoice.route.js";
+
 import { errorHandler, notFound } from "./middlewares/errorHandler.js";
 import { connectToDB } from "./utils/db.js";
-import userRoute from "./routes/user/user.route.js";
+import invoiceRoute from "./routes/invoice/invoice.route.js";
+import userRoutes from "./routes/user/user.route.js";
 
 dotenv.config();
 const app = express();
@@ -21,7 +24,7 @@ app.get("/api", (req, res) => {
 
 //user related
 
-app.use("/api/users", userRoute);
+app.use("/api/users", userRoutes);
 
 //invoice related
 app.use("/api/invoices", invoiceRoute);
