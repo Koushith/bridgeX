@@ -1,33 +1,42 @@
 import mongoose from 'mongoose'
 
 import bcrypt from 'bcryptjs'
+import { timeStamp } from 'console'
 
 //TODO: Refactor this. add few more meta details
-const walletSchema = new mongoose.Schema({
-  walletName: {
-    type: String,
-  },
-  address: {
-    type: String,
-  },
-})
-
-const userSchema = new mongoose.Schema({
+const addressBook = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
   },
-  email: {
+  walletAddress: {
     type: String,
   },
-  password: {
-    type: String,
-  },
-  wallets: [walletSchema],
 })
 
-userSchema.methods.comparePassword = async (enteredPassword: string) => {
-  return await bcrypt.compare(enteredPassword, this?.password)
-}
+const userSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+    },
+    password: {
+      type: String,
+    },
+    walletAddress: {
+      type: [String],
+    },
+    addressBook: [addressBook], //array of objects
+  },
+  {
+    timestamps: true,
+  }
+)
+
+// userSchema.methods.comparePassword = async (enteredPassword: string) => {
+//   return await bcrypt.compare(enteredPassword, this?.password)
+// }
 
 export const User = mongoose.model('User', userSchema)

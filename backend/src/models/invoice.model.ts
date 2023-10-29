@@ -1,4 +1,6 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose'
+
+//TODO: Refactor this. add few more meta details- visit later
 
 export const invoiceSchema = new mongoose.Schema(
   {
@@ -33,11 +35,11 @@ export const invoiceSchema = new mongoose.Schema(
     },
     createdBy: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: 'User',
     },
     reciever: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: 'User',
     },
     paymentWalletAddress: {
       type: String,
@@ -45,6 +47,6 @@ export const invoiceSchema = new mongoose.Schema(
     },
   },
   { timestamps: true }
-);
+)
 
-export const Invoice = mongoose.model("Invoice", invoiceSchema);
+export const Invoice = mongoose.model('Invoice', invoiceSchema)
