@@ -1,4 +1,4 @@
-import { apiSlice } from "@/slices/apiSlice";
+import { apiSlice } from "@/redux/slices/apiSlice";
 
 import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 
