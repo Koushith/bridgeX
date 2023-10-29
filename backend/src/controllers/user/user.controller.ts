@@ -5,6 +5,8 @@ import jwt from 'jsonwebtoken'
 import { asyncHandler } from '../../middlewares/asyncHandler.js'
 import { User } from '../../models/user.model.js'
 
+//TODO: - make use of firebase auth- remove this
+
 /**
  *  @description - authorize the user and send token
  */
