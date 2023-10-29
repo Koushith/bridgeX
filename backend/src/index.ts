@@ -4,14 +4,21 @@ import dotenv from "dotenv";
 
 import cors from "cors";
 
+import admin from "firebase-admin";
+
+import serviceAccount from './firebase/firebase-service.json';
 import { errorHandler, notFound } from "./middlewares/errorHandler.js";
 import { connectToDB } from "./utils/db.js";
 import invoiceRoute from "./routes/invoice/invoice.route.js";
 import userRoutes from "./routes/user/user.route.js";
 
+
 dotenv.config();
 const app = express();
 
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount as any),
+})
 connectToDB();
 app.use(cors());
 app.use(express.json());
