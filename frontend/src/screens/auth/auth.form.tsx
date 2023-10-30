@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-misused-promises */
 'use client'
 
 import * as React from 'react'
@@ -7,15 +8,21 @@ import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@radix-ui/react-label'
+import { signInWithGoogle } from '@/utils'
 
 type UserAuthFormProps = React.HTMLAttributes<HTMLDivElement>
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
+  const submitHandler = async ()=>{
+   
+    const user = await signInWithGoogle()
+ console.log(user)
+  }
 
   return (
     <div className={cn('grid gap-6', className)} {...props}>
-      <form onSubmit={() => ''}>
+      <div >
         <div className='grid gap-2'>
           <div className='grid gap-1'>
             <Label className='sr-only' htmlFor='email'>
@@ -31,12 +38,13 @@ export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
               disabled={isLoading}
             />
           </div>
-          <Button disabled={isLoading}>
+          // eslint-disable-next-line @typescript-eslint/no-misused-promises
+          <Button disabled={isLoading} onClick={submitHandler}>
             {isLoading && <div className='mr-2 h-4 w-4 animate-spin' />}
-            Sign In with Email
+            Sign In with Google
           </Button>
         </div>
-      </form>
+      </div>
       <div className='relative'>
         <div className='absolute inset-0 flex items-center'>
           <span className='w-full border-t' />
