@@ -1,4 +1,4 @@
-import { useGetAllUsersQuery } from '@/redux/slices/userSlice'
+import { useGetAllUsersQuery } from '@/redux/slices/auth/authApiSlice'
 
 export const ProfileScreen = () => {
   const { data: pro, isError, isLoading } = useGetAllUsersQuery('User')

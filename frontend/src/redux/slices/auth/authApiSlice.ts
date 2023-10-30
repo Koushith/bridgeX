@@ -1,5 +1,6 @@
 import { USER_ENDPOINT } from "@/utils";
-import { apiSlice } from "./apiSlice";
+
+import { apiSlice } from "../apiSlice";
 
 export const userSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
