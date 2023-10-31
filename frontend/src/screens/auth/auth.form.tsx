@@ -9,14 +9,19 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@radix-ui/react-label'
 import { signInWithGoogle } from '@/utils'
+import { useDispatch } from 'react-redux'
+import { setCredials } from '@/redux/slices/auth/authSlice'
 
 type UserAuthFormProps = React.HTMLAttributes<HTMLDivElement>
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
+  const dispatch = useDispatch()
   const submitHandler = async ()=>{
    
-    const user = await signInWithGoogle()
+    const {user} = await signInWithGoogle()
+    console.log(user)
+    dispatch(setCredials(JSON.stringify(user)))
  console.log(user)
   }
 
