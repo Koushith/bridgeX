@@ -25,7 +25,7 @@ function App() {
         </div>
       )}
 
-      <div className='main'>
+      <div className='main mt-6'>
         {location.pathname !== '/auth' && (
           <div>
             <SideBar />

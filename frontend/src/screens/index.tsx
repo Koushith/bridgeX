@@ -4,3 +4,4 @@ export * from "./manage/manage.screen";
 export * from "./notifications/notifications.screen";
 export * from "./profile/profile.screen";
 export * from "./transactions/transactions.screen";
+export * from './settings/settings.screen'
