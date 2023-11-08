@@ -11,18 +11,28 @@ import { Label } from '@radix-ui/react-label'
 import { signInWithGoogle } from '@/utils'
 import { useDispatch } from 'react-redux'
 import { setCredials } from '@/redux/slices/auth/authSlice'
+import { useRegisterUserMutation } from '@/redux/slices/auth/authApiSlice'
 
 type UserAuthFormProps = React.HTMLAttributes<HTMLDivElement>
 
 export function UserAuthForm({ className, ...props }: UserAuthFormProps) {
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
   const dispatch = useDispatch()
-  const submitHandler = async ()=>{
-   
-    const {user} = await signInWithGoogle()
+
+    const [registerUser, { isError, isSuccess }] = useRegisterUserMutation();
+
+  const submitHandler = async () => {
+  
+    const { user } = await signInWithGoogle()
     console.log(user)
     dispatch(setCredials(JSON.stringify(user)))
- console.log(user)
+
+    // if (user) {
+    //  const res = await registerUser("koushith", "email", ["walletAddress"], "jwtToken").unwrap()
+
+    //  console.log(res)
+    // }
+    console.log(user)
   }
 
   return (

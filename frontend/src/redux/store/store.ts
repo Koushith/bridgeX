@@ -1,6 +1,6 @@
 import { apiSlice } from "@/redux/slices/apiSlice";
-
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
+import { useDispatch } from 'react-redux'
+import { configureStore } from "@reduxjs/toolkit";
 
 import authReducer from "../slices/auth/authSlice";
 export const store = configureStore({
@@ -13,3 +13,6 @@ export const store = configureStore({
     getDefaultMiddleware().concat(apiSlice.middleware), //add apislice middleware
   devTools: true,
 });
+
+export type AppDispatch = typeof store.dispatch
+export const useAppDispatch: () => AppDispatch = useDispatch 
