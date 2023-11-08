@@ -1,9 +1,11 @@
 import express, { Request, Response } from 'express'
-
+import { initializeApp } from 'firebase-admin/app';
 import jwt from 'jsonwebtoken'
+import { getAuth } from 'firebase-admin/auth'
 
 import { asyncHandler } from '../../middlewares/asyncHandler.js'
 import { User } from '../../models/user.model.js'
+
 
 //TODO: - make use of firebase auth- remove this
 
@@ -11,36 +13,45 @@ import { User } from '../../models/user.model.js'
  *  @description - authorize the user and send token
  */
 export const authUser = asyncHandler(async (req: Request, res: Response) => {
-  const { email, password } = req.body
+  console.log("route working")
+  // initializeApp();
+  const firebaseAuth = getAuth()
+
+  const { name, email, walletAddress } = req.body
+  console.log('req.body ----->', name, email, walletAddress)
+
+  const token = req.headers.authorization?.split('')[1]
+  console.log('token ----->', token)
+  // if (!token) {
+  //   res.status(401)
+  //   throw new Error('Not authorized, no token')
+  // }
+  const authUser = await firebaseAuth.verifyIdToken(token as string)
+  console.log('auth user ----->', authUser)
+  if (!authUser) {
+    res.status(401)
+    throw new Error('Not authorized, no valid token')
+  }
+
   const user = await User.findOne({ email })
 
-  //this will check if the hashed password is as same as passoword stored in the database
-  //@ts-ignore TODO: check for type safy later
-  if (user && (await user?.comparePassword(password))) {
-    // genrate the token and set in httponly cookie
-    const token = jwt.sign(
-      {
-        userId: user?._id,
-      },
-      '5f1nc1ujbc', // TODO: move this to env- change the key while deploying
-      {
-        expiresIn: '30d',
-      }
-    )
-    // setting this on cookie, we are not sending this token in response. much safer and prevents cross side attacks!!
-    res.cookie('jwt', token, {
-      httpOnly: true,
-      maxAge: 30 * 24 * 60 * 1000, //30days
-      secure: process.env.NODE_ENV !== 'development',
+  if (!user) {
+    const newUser = await User.create({
+      name,
+      email,
+      walletAddress,
     })
-
-    res.status(200).json({
-      user,
-    })
-  } else {
-    res.status(401)
-    throw new Error('Invalid email or password')
+    if (newUser) {
+      res.status(201).json({
+        success: true,
+        data: newUser,
+      })
+    } else {
+      res.status(400)
+      throw new Error('Invalid user data')
+    }
   }
+
 })
 
 /**
