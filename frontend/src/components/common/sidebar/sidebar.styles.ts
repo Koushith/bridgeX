@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const SideBarContainer = styled.aside`
-  min-width: 150px;
+  min-width: 200px;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;

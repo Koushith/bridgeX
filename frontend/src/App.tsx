@@ -8,10 +8,20 @@ import { SideBar, TopBar } from "./components"
 import { styled } from "styled-components"
 
 const AppContainer = styled.div`
+  max-width: 1500px;
+  margin: 0 auto;
   .main {
     display: flex;
-    gap: 6rem;
+    /* gap: 6rem; */
     /* padding: 2rem; */
+
+    .outlet {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+    }
   }
 `
 
@@ -32,7 +42,7 @@ function App() {
           </div>
         )}
 
-        <div>
+        <div className='outlet'>
           <Outlet />
         </div>
       </div>
