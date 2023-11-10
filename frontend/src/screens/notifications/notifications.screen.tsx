@@ -1,3 +1,3 @@
 export const NotificationScreen = () => {
-  return <>Notifications Screen </>;
-};
+  return <>Coming Soon </>
+}
